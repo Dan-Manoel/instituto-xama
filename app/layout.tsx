@@ -1,11 +1,9 @@
-// app/layout.tsx
-import type { Metadata } from 'next';
-import './globals.css';
+import "./globals.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Instituto Xamã — Portal em construção',
-  description:
-    'Em breve, um novo portal para a escola de saberes ancestrais, tambores xamânicos, terapias integrativas e rituais com medicinas da floresta.',
+  title: "Instituto Xamã — Portal em construção",
+  description: "Novo portal do Instituto Xamã em preparação.",
 };
 
 export default function RootLayout({
@@ -15,7 +13,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body>{children}</body>
+      <body>
+        <header className="topbar">
+          <div className="wrap">
+            <div className="brand">
+              {/* Ajuste o caminho do logo conforme o arquivo que você tiver em /public */}
+              <img
+                src="/logo.png"
+                alt="Logo Instituto Xamã"
+                className="brand-logo"
+              />
+              <span className="brand-name">INSTITUTO XAMÃ</span>
+            </div>
+
+            <span className="topbar-pill">SITE EM CONSTRUÇÃO</span>
+          </div>
+        </header>
+
+        {children}
+      </body>
     </html>
   );
 }
