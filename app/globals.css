@@ -12,6 +12,7 @@
   --marrom: #783D19;         /* Russet */
   --verde-mata: #1F6B4E;     /* verde-mata do Instituto */
   --verde-weak: #2C8A66;     /*verde mata-fraco*/
+  
 
   --texto: #3A2E22;
   --texto-fraco: #6B5B4A;
@@ -293,4 +294,29 @@ body::before {
   .sprout-circle {
     width: 260px;
   }
+}
+
+.topbar-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  line-height: 1.2;
+
+  max-width: 160px;
+  white-space: normal;
+
+  overflow: hidden;
+
+  /* padrão (nem todo navegador aplica ainda, mas “cala” o aviso) */
+  line-clamp: 2;
+
+  /* WebKit (o que funciona de verdade no iOS/Chrome mobile) */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }

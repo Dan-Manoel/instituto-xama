@@ -1,9 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import TopbarPill from "./TopbarPill";
 
 export const metadata: Metadata = {
-  title: "Instituto Xamã — Portal em construção",
-  description: "Novo portal do Instituto Xamã em preparação.",
+  title: "Instituto Xamã",
+  description: "Portal do Instituto Xamã.",
 };
 
 export default function RootLayout({
@@ -17,7 +18,6 @@ export default function RootLayout({
         <header className="topbar">
           <div className="wrap">
             <div className="brand">
-              {/* Ajuste o caminho do logo conforme o arquivo que você tiver em /public */}
               <img
                 src="/logo.png"
                 alt="Logo Instituto Xamã"
@@ -26,7 +26,7 @@ export default function RootLayout({
               <span className="brand-name">INSTITUTO XAMÃ</span>
             </div>
 
-            <span className="topbar-pill">SITE EM CONSTRUÇÃO</span>
+            <TopbarPill />
           </div>
         </header>
 

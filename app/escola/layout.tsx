@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Escola de Saberes Ancestrais | Instituto Xamã",
+  title: "Escola de Xamanismo | Instituto Xamã",
   description: "Formação em Xamanismo, vivências e saberes ancestrais.",
 };
 
