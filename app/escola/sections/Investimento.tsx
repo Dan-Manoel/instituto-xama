@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import SectionWrapper from "../components/SectionWrapper";
 import ConsentModal from "../components/ConsentModal";
+import EadInterestModal from "../components/EadInterestModal";
 import {
   CHECKOUT_PRESENCIAL_URL,
   CHECKOUT_ONLINE_URL,
@@ -15,12 +16,14 @@ export default function Investimento() {
   const [open, setOpen] = useState(false);
   const [kind, setKind] = useState<ModalKind>(null);
 
+  const [openEad, setOpenEad] = useState(false);
+
   const checkoutUrl =
     kind === "presencial"
       ? CHECKOUT_PRESENCIAL_URL
       : kind === "online"
-      ? CHECKOUT_ONLINE_URL
-      : "";
+        ? CHECKOUT_ONLINE_URL
+        : "";
 
   const openModal = (k: Exclude<ModalKind, null>) => {
     setKind(k);
@@ -191,9 +194,16 @@ export default function Investimento() {
             <h3 className="text-xl font-semibold mb-3">Turma (EAD)</h3>
 
             {/* FAIXA DE DESCONTO */}
-            <div className="mb-4 rounded-lg bg-[#1F6B4E]/90 text-white px-4 py-2 text-sm font-semibold text-center">
+            <button
+              type="button"
+              onClick={() => setOpenEad(true)}
+              className="mb-4 w-full rounded-lg bg-[#1F6B4E]/90 text-white px-4 py-2
+                        text-sm font-semibold text-center
+                        hover:bg-[#195a42]/95 transition
+                        cursor-pointer"
+            >
               ENTRE NA LISTA DE INTERESSE
-            </div>
+            </button>
 
             <p className="mt-2 leading-relaxed">
               <strong>
@@ -230,9 +240,11 @@ export default function Investimento() {
 
             <div className="mt-auto pt-6">
               <button
-                onClick={() => openModal("online")}
+                type="button"
+                onClick={() => setOpenEad(true)}
                 className="w-full rounded-full px-8 py-4 font-semibold
-                           bg-[#5F6F52]/90 text-white hover:bg-[#4f5e45]"
+                          bg-[#5F6F52]/90 text-white hover:bg-[#4f5e45]
+                          cursor-pointer"
               >
                 Garantir 10% OFF no lançamento
               </button>
@@ -248,7 +260,19 @@ export default function Investimento() {
           * Consulte taxas do parcelamento. Pagamento em ambiente seguro.
         </p>
 
+        {/* MODAL PRESENCIAL (pagamento) */}
         <ConsentModal open={open} onClose={closeModal} checkoutUrl={checkoutUrl} />
+
+        {/* MODAL EAD (lista de interesse) */}
+        <EadInterestModal
+          open={openEad}
+          onClose={() => setOpenEad(false)}
+          titulo="Entre na lista VIP e garanta 10% OFF no lançamento do EAD"
+          onSubmit={(data) => {
+            // depois plugamos no backend/CRM/planilha.
+            console.log("Lead EAD:", data);
+          }}
+        />
       </div>
     </SectionWrapper>
   );
