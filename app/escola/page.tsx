@@ -8,6 +8,7 @@ import Modalidades from "./sections/Modalidades";
 import Investimento from "./sections/Investimento";
 import FAQ from "./sections/FAQ";
 import Footer from "./sections/Footer";
+import WhatsappFloat from "./components/WhatsappFloat";
 
 export default function EscolaPage() {
   return (
@@ -43,6 +44,9 @@ export default function EscolaPage() {
       </section>
 
       <Footer />
+
+      <WhatsappFloat message="Olá! Quero saber sobre o ESA 2026 (presencial e EAD)." />
+      
     </main>
   );
 }

@@ -93,7 +93,7 @@ export default function HeroVideo() {
 
           {/* slogan flexível */}
           <p className="mt-4 text-lg md:text-xl opacity-90">
-            Saberes ancestrais para cura, ritual e transformação.
+            Onde ciência e espiritualidade caminham juntas.
           </p>
 
           {/* CTA leitoso verde */}

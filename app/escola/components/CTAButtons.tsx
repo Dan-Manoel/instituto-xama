@@ -1,8 +1,8 @@
 export const CHECKOUT_PRESENCIAL_URL =
-  "https://pay.infinitepay.io/txaiarruda/Ri1D-HSzSngRG1-7990,00";
+  "https://loja.infinitepay.io/txaiarruda/quz4678-formacao-esa-online---ensino-hibrido";
 
 export const CHECKOUT_ONLINE_URL =
-  "https://pay.infinitepay.io/txaiarruda/Ri1B-1go1T0Pu3r-3500,00";
+  "https://loja.infinitepay.io/txaiarruda/giu5596-1-lote---escola-de-xamanismo-2026";
 
 export default function CTAButtons() {
   return (

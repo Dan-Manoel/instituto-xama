@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import SectionWrapper from "../components/SectionWrapper";
 
 type Depoimento = {
@@ -30,8 +33,7 @@ const DEPOIMENTOS: Depoimento[] = [
   },
   {
     nome: "Lauro Wagnitz",
-    frase:
-      "O que esse ano me trouxe de acesso a espiritualidade é indescritível.",
+    frase: "O que esse ano me trouxe de acesso a espiritualidade é indescritível.",
     youtubeUrl: "https://www.youtube.com/watch?v=yssOmpZ-XFk",
     instagramUrl: "https://www.instagram.com/laurowag/",
     instagramHandle: "@laurowag",
@@ -40,14 +42,101 @@ const DEPOIMENTOS: Depoimento[] = [
 ];
 
 export default function Modalidades() {
+  const [tab, setTab] = useState<0 | 1>(0);
+
+  const presencial = {
+    titulo: "Presencial",
+    texto:
+      "Encontros em grupo, vivências rituais e práticas guiadas, com suporte direto da equipe e aprofundamento vivencial em cada módulo.",
+    itens: [
+      "Vivências ao vivo e práticas em campo",
+      "Condução e acompanhamento de jornada",
+      "Integração em comunidade presencial",
+    ],
+  };
+
+  const ead = {
+    titulo: "Online (EAD)",
+    texto:
+      "Formação estruturada na plataforma Astron Members, acessada pelo Portal da Escola com usuário e senha. Conteúdos liberados por módulo, conforme cronograma.",
+    itens: [
+      "Aulas majoritariamente gravadas (no seu ritmo)",
+      "No mínimo 5 encontros ao vivo para orientações e aprofundamentos",
+      "Acesso ao conteúdo por 18 meses",
+      "Comunidade e suporte durante a jornada",
+    ],
+  };
+
+  const ativo = tab === 0 ? presencial : ead;
+
   return (
     <SectionWrapper>
       <h2 className="text-3xl md:text-4xl font-semibold text-center">
         Modalidades
       </h2>
 
-      {/* MODALIDADES */}
-      <div className="mt-10 grid md:grid-cols-2 gap-6">
+      {/* ===== MOBILE (tabs) ===== */}
+      <div className="mt-10 md:hidden">
+        <div className="rounded-2xl bg-white/10 backdrop-blur-xl p-6 border border-white/20 shadow-sm">
+          {/* Abas */}
+          <div className="flex gap-3 justify-center">
+            <button
+              type="button"
+              onClick={() => setTab(0)}
+              className={[
+                "px-5 py-2 text-sm font-semibold rounded-md transition border cursor-pointer",
+                "flex-1 text-center",
+                tab === 0
+                  ? "bg-white/10 border-white/35"
+                  : "bg-transparent border-white/15 hover:bg-white/5",
+              ].join(" ")}
+            >
+              Presencial
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setTab(1)}
+              className={[
+                "px-5 py-2 text-sm font-semibold rounded-md transition border cursor-pointer",
+                "flex-1 text-center",
+                tab === 1
+                  ? "bg-white/10 border-white/35"
+                  : "bg-transparent border-white/15 hover:bg-white/5",
+              ].join(" ")}
+            >
+              Online (EAD)
+            </button>
+          </div>
+
+          {/* Conteúdo variável */}
+          <div className="mt-5">
+            <h3 className="text-xl font-medium">{ativo.titulo}</h3>
+
+            <p className="mt-3 opacity-95 leading-relaxed">
+              {tab === 1 ? (
+                <>
+                  Formação estruturada na plataforma{" "}
+                  <strong>Astron Members</strong>, acessada pelo Portal da Escola
+                  com usuário e senha. Conteúdos liberados por módulo, conforme
+                  cronograma.
+                </>
+              ) : (
+                ativo.texto
+              )}
+            </p>
+
+            <ul className="mt-4 space-y-2 opacity-95 list-disc pl-5">
+              {ativo.itens.map((i) => (
+                <li key={i}>{i}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* ===== DESKTOP (inalterado) ===== */}
+      <div className="mt-10 hidden md:grid md:grid-cols-2 gap-6">
         <div className="rounded-2xl bg-white/10 backdrop-blur-xl p-8 border border-white/20 shadow-sm">
           <h3 className="text-xl font-medium">Presencial</h3>
           <p className="mt-3 opacity-95 leading-relaxed">

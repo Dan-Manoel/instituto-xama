@@ -40,86 +40,129 @@ Vivência
 
 Vivência
 • OCA
-• Construção do seu totem animal de poder`,
+• Construção do seu totem
+• Animal de poder e aliados`,
   },
   {
     titulo: "Módulo III: Arquétipos no Xamanismo",
     data: "30/05/2026",
     resumo: `Conteúdos
-• Arquétipos segundo Jung
+• O que são arquétipos
+• Arquétipos de Jung
+• A importância da utilização dos arquétipos no cotidiano
 • Inconsciente coletivo
-• Oráculo Thaty Tambor
+• Oráculo Thaty Tambor - estudo e prática
 
 Vivência
-• Descoberta do arquétipo pessoal`,
+• Descoberta do arquétipo pessoal
+• Preparando seu oráculo pessoal
+• Roda de oráculos`,
   },
   {
     titulo: "Módulo IV: Níveis de Consciência",
     data: "27/06/2026",
     resumo: `Conteúdos
-• Identificação e desidentificação
+• Processo de identificação e desidentificação
 • Indo além do ego
-• Organização do aparelho psíquico
+• Forma pensamento (do micro ao macro)
+• Organização topográfica da mente
+• Organização estrutural do aparelho psíquico
+• Quíron - o curador ferido
+• Desmistificando a mediunidade
 
 Vivência
 • Conexão espiritual`,
   },
   {
-    titulo: "Módulo V (Híbrido): Medicinas da Floresta",
+    titulo: "Módulo V (Híbrido): Um olhar terapêutico para as Medicinas da Floresta",
     data: "24/07/2026",
     resumo: `Conteúdos
-• Ética e uso consciente das medicinas
+• Plantas mestras aliadas ao Xamanismo
+• Respeito e ética na utilização das medicinas
 • Ayahuasca, Rapé, Sananga, Kambô
+• Ervas que curam
 
 Vivência
-• Cama de ervas`,
+• Cama de ervas
+• Roda de Rapé e Sananga`,
   },
   {
-    titulo: "Módulo VI (Imersivo)",
+    titulo: "Módulo VI (Imersivo): Recursos terapêuticos aplicados no Xamanismo II",
     data: "25–26/07/2026",
     resumo: `Conteúdos
-• Instrumentos mágicos
-• Canções de poder e cura
-• Temazcal
+• Instrumentos Mágicos dentro do Xamanismo
+• A chanupa, pito ou cachimbo sagrado
+• C Canções de poder
+• Canções de Cura
+• Canto da alma
+• Recursos sonoros
+• Movimentos sistêmicos
 
 Vivência
-• Ritual Xamânico`,
+• Ritual Xamânico (Ayahuasca)
+• Constelação Xamânica
+• Consagração do Bastão da Conquista
+• Temazcal - inteligência/intuição/força de vontade/ação criativa`,
   },
   {
-    titulo: "Módulo VII: Recursos Terapêuticos I",
+    titulo: "Módulo VII: Recursos terapêuticos aplicados no Xamanismo I",
     data: "29/08/2026",
     resumo: `Conteúdos
 • Chakras e corpos sutis
+• Estados xamânicos
+• Vibração e frequência
+• Chakras - corpos sutis
+• Cores e cristais
+• Meditação
 • Meditação guiada
 
 Vivência
-• Alinhamento energético`,
+• Alinhamento energético  com tambores e cristais`,
   },
   {
-    titulo: "Módulo VIII: Terapias Transpessoais",
+    titulo: "Módulo VIII: Terapias Transpessoais alinhadas ao xamanismo",
     data: "26/09/2026",
     resumo: `Conteúdos
 • Arteterapia
 • Mandalas terapêuticas
+• Mandalas terapeuticas
+• O sistema de cura bioenergéticos
+• Mandala da consciência
+• Limpia xamânica
+• Roda de cura na fogueira
+• Bastão da transmutação
+• Consagração do fogo
 
 Vivência
+• Psicoexpressiva contínua
+• Cartografia corporal
 • Cerimônia do Cacau`,
   },
   {
-    titulo: "Módulo IX (Híbrido): Xamanismo Andino",
+    titulo: "Módulo IX (Híbrido): Práticcas de atendimento - Xamanismo Andino",
     data: "16/10/2026",
     resumo: `Conteúdos
 • Setting terapêutico
+• Rapport/Vínculo
 • Técnicas de abordagem
+• Condução do tempo
+• Sandplay
 
 Vivência
-• Machu Picchu`,
+• Excursão para Machu Picchu (opcional)
+• Cerimônia de Wachuma (03/10)`,
   },
   {
-    titulo: "Módulo X: Encerramento",
+    titulo: "Módulo X: Iniciação Xamânica",
     data: "28/11/2026",
     resumo: `Vivência
-• Rito de passagem e fechamento`,
+• O encontro com o Xamã
+• Corpo, mente e espírito integrados
+• Fogueira do conselho
+
+Vivência
+• Iniciação E.S.A.
+• Rito de encerramento`,
   },
 ];
 
@@ -200,8 +243,11 @@ export default function Programa() {
         {MODULOS.map((m, idx) => (
           <div
             key={idx}
-            className="snap-start flex-shrink-0 w-full md:w-1/2 rounded-2xl
-            bg-white/5 p-6 backdrop-blur"
+            className="
+              snap-start flex-shrink-0 w-full md:w-1/2 rounded-2xl
+              bg-white/5 p-6 backdrop-blur
+              overflow-hidden border border-white/10
+            "
           >
             <div className="flex justify-between gap-3 mb-2">
               <h3 className="font-semibold">{m.titulo}</h3>

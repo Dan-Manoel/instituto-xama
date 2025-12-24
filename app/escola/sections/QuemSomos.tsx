@@ -185,7 +185,7 @@ export default function QuemSomos() {
 
         {/* 4) DIREITA — Quem sustenta (carrossel 2 por página) */}
         <div className="rounded-2xl bg-white/5 p-6 md:p-7 backdrop-blur border border-white/10 flex flex-col">
-          <h3 className="text-xl font-semibold">Quem sustenta a formação</h3>
+          <h3 className="text-xl font-semibold">Facilitadores</h3>
 
           <p className="mt-2 opacity-90 leading-relaxed">
             Além dos fundadores Thaty e Bruno, a jornada pode contar com facilitadores

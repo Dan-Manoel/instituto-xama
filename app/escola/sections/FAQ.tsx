@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import SectionWrapper from "../components/SectionWrapper";
 
 const faqs = [
@@ -78,14 +78,36 @@ const faqs = [
   },
 ];
 
-const PAGE_SIZE = 4;
+const PAGE_SIZE_MOBILE = 2;
+const PAGE_SIZE_DESKTOP = 4;
 
 export default function FAQ() {
   const [page, setPage] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
 
-  const totalPages = Math.ceil(faqs.length / PAGE_SIZE);
-  const start = page * PAGE_SIZE;
-  const currentFaqs = faqs.slice(start, start + PAGE_SIZE);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mq.matches);
+
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  const pageSize = isDesktop ? PAGE_SIZE_DESKTOP : PAGE_SIZE_MOBILE;
+
+  const totalPages = useMemo(
+    () => Math.ceil(faqs.length / pageSize),
+    [pageSize]
+  );
+
+  useEffect(() => {
+    // se trocar de mobile <-> desktop e a página atual ficar fora do range, ajusta
+    setPage((p) => Math.min(p, Math.max(0, totalPages - 1)));
+  }, [totalPages]);
+
+  const start = page * pageSize;
+  const currentFaqs = faqs.slice(start, start + pageSize);
 
   const prev = () => setPage((p) => Math.max(0, p - 1));
   const next = () => setPage((p) => Math.min(totalPages - 1, p + 1));
